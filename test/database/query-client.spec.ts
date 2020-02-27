@@ -96,7 +96,7 @@ test.group('Query client', (group) => {
     })
     await connection.client?.schema.createTableIfNotExists('test_profiles', (table) => {
       table.increments('id').primary()
-      table.integer('user_id').references('test_users.id').onDelete('CASCADE')
+      table.integer('user_id').unsigned().references('test_users.id').onDelete('CASCADE')
     })
 
     /**
